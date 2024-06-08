@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatchOcean</title>
+    <link rel="stylesheet" href="CSS\estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrQdR9GvXjW/ztvEo+67ro0O6MQ5fgncEDk5Z1DyY5S3scufTPGH4/gN9Pe/9e5b9dqJa3ZjZ9lH+qF+w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <a href="javascript:void(0);" class="botao-hamburguer" onclick="menuhamburguer()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <ul class="menu-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#serviços">Serviços</a></li>
+                <li><a href="#redes-sociais">Contato</a></li>
+            </ul>
+        </nav>
+</header>
+
+<!--Criação do carrossel-->
+
+<div class="carrossel">
+    <div class="organizador-carrossel">
+        <div class="imagem-carrossel active">
+            <img src="imagens\carrossel1.png" alt="Slide 1" placeholder="imagem1">
+        </div>
+        <div class="imagem-carrossel">
+            <img src="imagens\carrossel2.jpg" alt="Slide 2" placeholder="imagem2">
+        </div>
+    </div>
+    <a class="imagem-anterior" onclick="anterior()">&#10094;</a>
+    <a class="imagem-proxima" onclick="proxima()">&#10095;</a>
+</div>
+
+<h2 id="sobre"> Conheça mais sobre nosso projeto</h2>
+
+<div id="container1">
+    <img src="imagens\plastico_oceano.png" alt="cont-img" class="cont-img" placeholder="Pilha de lixo no oceano">
+    <p class="txt">
+        <span>Iniciamos essa grande missão ao perceber a verdadeira importância do oceano e o impacto profundo que ele tem em nossas vidas. </span>
+        <span> Se você ainda não compreendeu totalmente essa realidade, junte-se a nós nesta jornada e permita-nos abrir seus olhos para essa causa vital!</span>
+    </p>
+</div>
+
+<h2 id="serviços">Agora conheça nossos serviços</h2>
+
+<div id="container2">
+    <p class="txt2">
+       <span> OceanGuard é uma inovadora solução para monitorar e preservar a saúde dos oceanos. Utiliza coleta, processamento e visualização de dados ambientais em tempo real.</span>
+        <span>
+            A solução inicia com um dispositivo Arduino equipado com sensores de temperatura, pH e turbidez, capturando informações precisas sobre a qualidade da água e outras variáveis ambientais.</span>
+    </p>
+    <img src="imagens\plastico_oceano.png" alt="cont-img" class="cont-img2" placeholder="Prototipo do mecanismo">
+</div>
+
+<h2>Fique por dentro de nosssa novidades!</h2>
+<section>
+    <form id="email">
+      <label for="email">Email:</label>
+      <div class="input-group">
+        <span class="icon">📧</span>
+        <input type="email" id="email" name="email" placeholder="Seu email" required>
+      </div>
+      <button type="submit">Cadastrar</button>
+    </form>
+</section>
+<script src="js\script.js"></script>
+
+<footer>
+    <div id="redes-sociais">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <p>&copy; 2024 WatchOcean. Todos os direitos reservados.</p>
+  </footer>
+
+
+</body>
+</html>
+

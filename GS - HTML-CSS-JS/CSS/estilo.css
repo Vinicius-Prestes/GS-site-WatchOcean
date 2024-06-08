@@ -1,0 +1,340 @@
+/*padronização das cores*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+    --bg-color1:#333;
+    --bg-color2:#3eaef4;
+    --bg-color3: #fff;
+    --text-color:black;
+    --bg-color4: #E8F1F2;
+    --bg-color5: #006494;
+}
+/*formatações gerais*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color4);
+}
+
+header {
+    background-color: var(--bg-color2);
+    padding: 10px 0;
+}
+
+h2{
+    text-transform: uppercase;
+    margin: auto;
+    text-align: center;
+    font-size: 1.7rem;
+    margin: 60px 30px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.menu-links {
+    list-style: none;
+    display: flex;
+    margin-left: auto; /* Adicionada esta linha para alinhar os links à esquerda */
+}
+
+.menu-links li {
+    margin: 0 15px;
+}
+
+.menu-links li a {
+    text-decoration: none;
+    color: var(--bg-color);
+    font-size: 18px;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.menu-links li a:hover {
+    background-color: var(--bg-color4);
+    border-radius: 5px;
+}
+
+.botao-hamburguer {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2px;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.botao-hamburguer .bar {
+    height: 3px;
+    width: 100%;
+    background-color: var(--bg-color1);
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+/*responsividade*/
+
+@media (max-width: 800px) {
+    .menu-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .menu-links.active {
+        display: flex;
+    }
+
+    .botao-hamburguer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+
+    .menu-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .menu-links li a {
+        padding: 10px;
+    }
+}
+
+.botao-hamburguer.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.botao-hamburguer.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.botao-hamburguer.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* definição do carrossel */
+
+.carrossel {
+    position: relative;
+    max-width: 1000px;
+    max-height: 600px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.organizador-carrossel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.imagem-carrossel {
+    min-width: 100%;
+    display: none;
+}
+
+.imagem-carrossel img {
+    width: 100%;
+    height: 500px;
+
+    display: block;
+}
+
+.imagem-carrossel.active {
+    display: block;
+}
+
+.imagem-anterior, .imagem-proxima {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+font-size: 30px;
+cursor: pointer;
+color: #333;
+padding: 10px;
+user-select: none;
+z-index: 1; /* Garante que os controles ficam acima das imagens */
+}
+
+.imagem-anterior {
+    left: 10px;
+}
+
+.imagem-proxima {
+    right: 10px;
+}
+
+/*estilizando o container que vem da direita para esquerda*/
+#container1{
+    align-items: center;
+    display: flex;
+    max-width: 80%;
+    margin-bottom: 25px;
+    margin: auto;
+
+}
+
+
+.cont-img {
+    max-width: 400px; 
+    height: auto;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: aparecer 1s forwards;
+    animation-delay: 0.5s;
+    margin-right: 30px;
+    border-radius: 70%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--bg-color4);
+}
+
+.txt {
+    max-width: 600px;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: aparecer 1s forwards;
+    animation-delay: 1s;
+}
+
+.txt span{
+    display: block;
+    margin-bottom: 10px;
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/*conteiner que vem da esquerda para direita*/
+
+#container2 {
+    display: flex;
+    align-items: center;
+    max-width: 80%;
+    opacity: 0;
+    transform: translateX(-1000px);
+    animation: aparecer 1s forwards;
+    margin: auto;
+}
+
+.cont-img2 {
+    max-width: 400px; 
+    height: auto;
+    opacity: 0;
+    animation: aparecer 1s forwards;
+    animation-delay: 1  s;
+    margin-left: 30px;
+    border-radius: 70%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ddd;
+    margin-bottom: 30px;
+}
+
+.txt2 {
+    text-justify: newspaper;
+    max-width: 500px;
+    text-align: left; /* Alinhar texto à esquerda */
+}
+
+.txt2 span{
+    display: block;
+    margin-bottom: 10px;
+}
+
+/*formatando solicitação de email*/
+
+form {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+section {
+   background: white;
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   max-width: 400px;
+   width: 100%;
+   margin: auto;
+}
+
+.input-group {
+   position: relative;
+}
+
+.input-group input {
+   width: 100%;
+   padding: 10px 10px 10px 40px;
+   border: 1px solid var(--bg-color3);
+   border-radius: 5px;
+   font-size: 16px;
+}
+
+.input-group .icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+button {
+   padding: 10px;
+   background-color: var(--bg-color5);
+   border: none;
+   border-radius: 5px;
+   font-size: 16px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+button:hover {
+   background-color: var(--bg-color2);
+}
+
+footer {
+   background-color: var(--bg-color1);
+   color: var(--bg-color3);
+   padding: 20px;
+   width: 100%;
+   text-align: center;
+   margin-top: 20px;
+}
+
+.redes-sociais {
+  margin-bottom: 10px;
+}
+
+.redes-sociais a {
+   color: var(--bg-color4);
+   margin: 0 10px;
+   text-decoration: none;
+   font-size: 24px;
+   transition: color 0.3s ease;
+}
+
+.redes-sociais a:hover {
+   color: var(--bg-color2);
+}
